@@ -1,10 +1,10 @@
 {
   "product_name": "Asics Megablast",
-  "brand": "Asics",
-  "model": "Megablast",
-  "gender": "Men",
   "size": "7.5",
-  "target_price": 2100.00,
-  "keywords": ["Asics Megablast", "UK 10", "Men", "sale", "discount"]
+  "target_price": 211.00,
+  "urls": {
+    "sportsshoes": "https://www.sportsshoes.com/product/asi16116/asics-megablast-running-shoes---aw25",
+    "runnea": "https://www.runnea.co.uk/running-shoes/asics/megablast/1058089/prices/all/gender-mens/"
+  }
 }
 

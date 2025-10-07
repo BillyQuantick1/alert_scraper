@@ -36,7 +36,3 @@ def scrape_sportsshoes(product_url, target_price, target_size):
         }
     else:
         return None
-
-
-
-
