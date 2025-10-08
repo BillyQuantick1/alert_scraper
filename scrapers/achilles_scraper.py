@@ -46,14 +46,14 @@ def scrape_achilles_heel(product_urls, target_price, target_size):
             continue
 
         try:
-            # ✅ Extract sizes
-            size_elements = soup.select("fieldset[aria-label='Size'] span")
+            # ✅ Extract only in-stock sizes (exclude .is-disabled)
+            size_elements = soup.select("label.block-swatch:not(.is-disabled) span")
             available_sizes = []
             for el in size_elements:
                 text = el.get_text(strip=True)
-                if text.replace(".", "").isdigit():
+                if re.match(r"^\d+(\.\d)?$", text):
                     available_sizes.append(text)
-            print(f"👟 Sizes found: {available_sizes}")
+            print(f"👟 In-stock sizes found: {available_sizes}")
         except Exception as e:
             print(f"❌ Size scraping error: {e}")
             continue
@@ -70,6 +70,11 @@ def scrape_achilles_heel(product_urls, target_price, target_size):
 
     driver.quit()
     return None
+
+
+
+
+
 
 
 
