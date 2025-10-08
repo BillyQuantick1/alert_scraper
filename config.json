@@ -2,9 +2,16 @@
   "product_name": "Asics Megablast",
   "size": "7.5",
   "target_price": 211.00,
+  "recipient_email": "your_email@outlook.com",
   "urls": {
     "sportsshoes": "https://www.sportsshoes.com/product/asi16116/asics-megablast-running-shoes---aw25",
-    "runnea": "https://www.runnea.co.uk/running-shoes/asics/megablast/1058089/prices/all/gender-mens/"
+    "runnea": "https://www.runnea.co.uk/running-shoes/asics/megablast/1058089/prices/all/gender-mens/",
+    "achilles_heel": [
+      "https://www.achillesheel.co.uk/products/megablast-running-shoes-edo-purple-black",
+      "https://www.achillesheel.co.uk/products/asics-megablast-running-shoes-white-piedmont-grey"
+    ]
   }
 }
+
+
 
