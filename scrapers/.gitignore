@@ -1,0 +1,36 @@
+# Python bytecode and cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Environment variables
+variables.env
+.env
+
+# Logs and temp files
+*.log
+*.tmp
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Virtual environments
+venv/
+env/
+
+# IDE/editor configs
+.vscode/
+.idea/
+
+# Task Scheduler artifacts (if any)
+*.bat
+*.ps1
+
+# Git itself
+.git/
+
+# Optional: compiled binaries or output
+*.exe
+*.out
+*.bin
