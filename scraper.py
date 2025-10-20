@@ -10,18 +10,22 @@ from scrapers.runnea_scraper import scrape_runnea
 from scrapers.achilles_scraper import scrape_achilles_heel
 
 # Load environment variables from .env file
-# Load environment variables from .env file
 load_dotenv(dotenv_path="variables.env")
 
 # ✅ Debug print to confirm variable is loaded
 print("Loaded ALERT_TO:", os.getenv("ALERT_TO"))
 
+# Detect if running in CI (GitHub Actions sets CI=true)
+IS_CLOUD = os.getenv("CI") == "true"
 
 def load_config():
     with open('config.json', 'r') as f:
         return json.load(f)
 
 def send_local_notification(product_name, price, source):
+    if IS_CLOUD:
+        print("🔕 Skipping local notification (running in cloud)")
+        return
     notification.notify(
         title="Product Alert!",
         message=f"{product_name} is available for £{price} on {source}!",
@@ -88,6 +92,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
