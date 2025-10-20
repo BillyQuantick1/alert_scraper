@@ -1,0 +1,31 @@
+name: Run Scraper 3x Daily
+
+on:
+  schedule:
+    - cron: '0 8 * * *'   # 9 AM BST (8 AM UTC)
+    - cron: '0 11 * * *'  # 12 PM BST (11 AM UTC)
+    - cron: '0 17 * * *'  # 6 PM BST (5 PM UTC)
+  workflow_dispatch:      # Manual trigger option
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run scraper
+        env:
+          ALERT_FROM: ${{ secrets.ALERT_FROM }}
+          ALERT_TO: ${{ secrets.ALERT_TO }}
+          BREVO_SMTP_USER: ${{ secrets.BREVO_SMTP_USER }}
+          BREVO_SMTP_PASS: ${{ secrets.BREVO_SMTP_PASS }}
+        run: python scraper.py
